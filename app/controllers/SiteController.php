@@ -29,8 +29,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         \Yii::$app->seo->setTitle('Головна');
-        \Yii::$app->seo->setDescription('Етноідея');
-        \Yii::$app->seo->setKeywords('етноідея, україна');
+        \Yii::$app->seo->setDescription('Ювелирка');
+        \Yii::$app->seo->setKeywords('ювелирка, україна');
 
         return $this->render('index', [
         ]);
