@@ -35,4 +35,43 @@ class SiteController extends Controller
         return $this->render('index', [
         ]);
     }
+
+    /**
+     * @return string
+     */
+    public function actionPortfolio()
+    {
+        \Yii::$app->seo->setTitle('Портфоліо');
+        \Yii::$app->seo->setDescription('Ювелирка');
+        \Yii::$app->seo->setKeywords('ювелирка, україна');
+
+        return $this->render('portfolio', [
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function actionProfile()
+    {
+        \Yii::$app->seo->setTitle('Профайл');
+        \Yii::$app->seo->setDescription('Ювелирка');
+        \Yii::$app->seo->setKeywords('ювелирка, україна');
+
+        return $this->render('profile', [
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function actionContact()
+    {
+        \Yii::$app->seo->setTitle('Контакт');
+        \Yii::$app->seo->setDescription('Ювелирка');
+        \Yii::$app->seo->setKeywords('ювелирка, україна');
+
+        return $this->render('contact', [
+        ]);
+    }
 }

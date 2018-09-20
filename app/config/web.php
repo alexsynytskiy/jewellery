@@ -24,8 +24,8 @@ $config = [
         $getParam = $app->request->get('parent');
         preg_match('/[^\/]+$/', $pathInfo, $matches);
 
-        $startRedirect = ['admin', 'site', 'location'];
-        $stopRedirect  = ['items', 'edit', 'photos', 'settings', 'index', 'list', 'redactor'];
+        $startRedirect = ['admin'];
+        $stopRedirect  = ['items', 'edit', 'photos', 'settings', 'index', 'list', 'redactor', 'site'];
 
         $redirect = false;
 
@@ -66,6 +66,7 @@ $config = [
         ],
         'urlManager' => [
             'rules' => [
+                '<action:\w+>' => 'site/<action>',
                 '<controller:\w+>/'                  => '<controller>/index',
                 '<controller:\w+>/<slug:[\w-]+>'     => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/'     => '<controller>/<action>',

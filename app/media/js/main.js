@@ -30,6 +30,11 @@ $(document).ready(function () {
         mode: 'fade'
     });
 
+    windowSize();
+    $(window).resize(function () {
+        windowSize();
+    });
+
     $('body').on("click", '#mobileMenuLink a', function (e) {
         e.preventDefault();
 
@@ -43,3 +48,21 @@ $(document).ready(function () {
         $(mobileNav).toggleClass("menu-open");
     });
 });
+
+/**
+ * window with gradient size preparing
+ */
+function windowSize() {
+    var height = $(document).height();
+
+    if (height < $(window).height()) {
+        $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
+            'min-height': 'calc(100vh - 195px)'
+        });
+    }
+    else {
+        $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
+            'min-height': '100%'
+        });
+    }
+}
