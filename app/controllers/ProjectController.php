@@ -2,6 +2,11 @@
 
 namespace app\controllers;
 
+use app\components\PublicationsQuery;
+use yii\easyii\components\helpers\CategoryHelper;
+use yii\easyii\components\helpers\LanguageHelper;
+use yii\easyii\modules\news\api\News;
+use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\Response;
@@ -40,9 +45,28 @@ class ProjectController extends Controller
                 throw new BadRequestHttpException();
             }
 
+            $slug = ArrayHelper::getValue(\Yii::$app->request->post(), 'slug');
+            $nextValue = ArrayHelper::getValue(\Yii::$app->request->post(), 'nextValue');
+            $prevValue = ArrayHelper::getValue(\Yii::$app->request->post(), 'prevValue');
 
+            $project = null;
 
-            return ['status' => 'error', 'message' => 'Проект не знайдено'];
+            if (\Yii::$app->language !== LanguageHelper::LANG_UA) {
+                $project = News::get([$slug, 'en']);
+            } else {
+                $project = News::get([$slug]);
+            }
+
+            $projectsCount = count(PublicationsQuery::getList([CategoryHelper::CATEGORY_PORTFOLIO]));
+
+            $projectRenderingData = $this->renderAjax('portfolio-item', [
+                'project' => $project,
+                'countProjects' => $projectsCount,
+                'nextValue' => $nextValue,
+                'prevValue' => $prevValue,
+            ]);
+
+            return ['status' => 'ok', 'html' => $projectRenderingData];
         } catch (BadRequestHttpException $exception) {
             return $errorResponse;
         } catch (\Exception $exception) {

@@ -29,8 +29,8 @@ class Feedback extends \yii\easyii\components\ActiveRecord
     {
         return [
             [['name', 'email', 'text'], 'required'],
-            [['name', 'surname', 'email', 'phone', 'title', 'text', 'client_type'], 'trim'],
-            [['name','surname','title', 'text', 'client_type', 'order_type', 'place', 'date'], EscapeValidator::className()],
+            [['name', 'surname', 'email', 'phone', 'title', 'text'], 'trim'],
+            [['name','surname','title', 'text'], EscapeValidator::className()],
             ['title', 'string', 'max' => 128],
             ['email', 'email'],
             ['phone', 'match', 'pattern' => '/^[\d\s-\+\(\)]+$/'],
@@ -49,9 +49,9 @@ class Feedback extends \yii\easyii\components\ActiveRecord
                 $this->status = self::STATUS_NEW;
             }
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function afterSave($insert, $changedAttributes)
@@ -59,7 +59,7 @@ class Feedback extends \yii\easyii\components\ActiveRecord
         parent::afterSave($insert, $changedAttributes);
 
         if($insert){
-            $this->mailAdmin();
+            //$this->mailAdmin();
         }
     }
 
@@ -74,10 +74,6 @@ class Feedback extends \yii\easyii\components\ActiveRecord
             'answer_subject' => Yii::t('easyii/feedback', 'Subject'),
             'answer_text' => Yii::t('easyii', 'Text'),
             'phone' => Yii::t('easyii/feedback', 'Phone'),
-            'client_type' => Yii::t('easyii/feedback', 'Client type'),
-            'order_type' => Yii::t('easyii/feedback', 'Order type'),
-            'place' => Yii::t('easyii/feedback', 'Event place'),
-            'date' => Yii::t('easyii/feedback', 'Event date'),
             'reCaptcha' => Yii::t('easyii', 'Anti-spam check')
         ];
     }

@@ -64,6 +64,9 @@ $config = [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
         ],
+        'mutex' => [
+            'class' => 'yii\mutex\FileMutex',
+        ],
         'urlManager' => [
             'rules' => [
                 '<action:\w+>' => 'site/<action>',

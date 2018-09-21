@@ -20,29 +20,9 @@ $asset = \yii\easyii\modules\news\assets\NewsAsset::register($this);
     'options' => ['enctype' => 'multipart/form-data', 'class' => 'model-form']
 ]); ?>
 
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <?= $form->field($model, 'category')->widget(\kartik\select2\Select2::className(), [
-                'data' => CategoryHelper::getCategories(),
-                'language' => Yii::$app->language,
-                'options' => ['placeholder' => Yii::t('easyii', 'No')],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
-            ]); ?>
-        </div>
-        <div class="col-md-6" id="to-main-page">
-            <?= $form->field($model, 'on_main')->checkbox() ?>
-        </div>
-    </div>
+<?= $form->field($model, 'title') ?>
 
-    <div class="col-md-12" id="title">
-        <?= $form->field($model, 'title') ?>
-    </div>
-
-    <div class="col-md-12" id="short">
-        <?= $form->field($model, 'short')->textarea() ?>
-    </div>
+<?= $form->field($model, 'short')->textarea() ?>
 
 <?= $form->field($model, 'text')->widget(Redactor::className(), [
     'options' => [

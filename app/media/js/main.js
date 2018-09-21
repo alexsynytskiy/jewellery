@@ -53,16 +53,14 @@ $(document).ready(function () {
  * window with gradient size preparing
  */
 function windowSize() {
-    var height = $(document).height();
+    var height = $(document).height(),
+        value = '100%';
 
     if (height < $(window).height()) {
-        $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
-            'min-height': 'calc(100vh - 195px)'
-        });
+        value = 'calc(100vh - 195px)';
     }
-    else {
-        $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
-            'min-height': '100%'
-        });
-    }
+
+    $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
+        'min-height': value
+    });
 }

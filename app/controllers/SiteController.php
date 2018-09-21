@@ -45,7 +45,10 @@ class SiteController extends Controller
         \Yii::$app->seo->setDescription('Ювелирка');
         \Yii::$app->seo->setKeywords('ювелирка, україна');
 
+        $works = PublicationsQuery::getList([CategoryHelper::CATEGORY_PORTFOLIO]);
+
         return $this->render('portfolio', [
+            'works' => $works,
         ]);
     }
 

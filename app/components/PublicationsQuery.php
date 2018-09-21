@@ -24,7 +24,6 @@ class PublicationsQuery extends Object
     {
         return News::items([
             'limit' => $limit,
-            //'tags' => \Yii::$app->request->get('tag'),
             'language' => \Yii::$app->language !== LanguageHelper::LANG_UA ? 'en' : 'uk',
             'where' => ArrayHelper::merge([
                 'category' => $category,

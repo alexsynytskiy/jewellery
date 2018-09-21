@@ -17,25 +17,11 @@ if ($model->status === Feedback::STATUS_ANSWERED) {
     <dt><?= Yii::t('easyii', 'Name') ?></dt>
     <dd><?= $model->name ?></dd>
 
+    <dt><?= Yii::t('easyii', 'Surname') ?></dt>
+    <dd><?= $model->surname ?></dd>
+
     <dt>E-mail</dt>
     <dd><?= $model->email ?></dd>
-
-    <?php if ($this->context->module->settings['enablePhone']) : ?>
-        <dt><?= Yii::t('easyii/feedback', 'Phone') ?></dt>
-        <dd><?= $model->phone ?></dd>
-    <?php endif; ?>
-
-    <dt>Тип клієнта</dt>
-    <dd><?= \yii\easyii\helpers\TypeHelper::getValue($model->client_type) ?></dd>
-
-    <dt>Тип замовлення</dt>
-    <dd><?= \yii\easyii\helpers\TypeHelper::getValueOrder($model->order_type) ?></dd>
-
-    <dt>Місце</dt>
-    <dd><?= $model->place ?></dd>
-
-    <dt>Час проведення</dt>
-    <dd><?= $model->date ?></dd>
 
     <?php if ($this->context->module->settings['enableTitle']) : ?>
         <dt><?= Yii::t('easyii', 'Title') ?></dt>

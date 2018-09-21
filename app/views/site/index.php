@@ -32,14 +32,8 @@ $baseUrl = $asset->baseUrl;
                     <noscript><img src="https://static1.squarespace.com/static/57e91a1fe3df28942b94bccb/57eb84fae3df28caea8e04f2/57f1123159cc68fe6a91c674/1513192119634/DSC08803.png"
                                    alt="PORTFOLIO OF WORK"  /></noscript>
                     <span class="image-slide-hover-effect" style="top: 0; left:0; width:1140px; height: 410px;"></span>
-                    <img class="thumb-image loaded"
-                         data-src="https://static1.squarespace.com/static/57e91a1fe3df28942b94bccb/57eb84fae3df28caea8e04f2/57f1123159cc68fe6a91c674/1513192119634/DSC08803.png"
-                         data-image="https://static1.squarespace.com/static/57e91a1fe3df28942b94bccb/57eb84fae3df28caea8e04f2/57f1123159cc68fe6a91c674/1513192119634/DSC08803.png"
-                         data-image-dimensions="1000x360" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="57f1123159cc68fe6a91c674"
-                         data-type="image" data-position-mode="standard"
-                         style="opacity: 1; left: 0; width: 1140px; position: relative;" data-parent-ratio="2.4" alt="PORTFOLIO OF WORK"
-                         src="https://static1.squarespace.com/static/57e91a1fe3df28942b94bccb/57eb84fae3df28caea8e04f2/57f1123159cc68fe6a91c674/1513192119634/DSC08803.png?format=1500w"
-                         data-image-resolution="1500w">
+                    <img class="thumb-image loaded" style="opacity: 1; left: 0; width: 1140px; position: relative;" alt="PORTFOLIO OF WORK"
+                         src="https://static1.squarespace.com/static/57e91a1fe3df28942b94bccb/57eb84fae3df28caea8e04f2/57f1123159cc68fe6a91c674/1513192119634/DSC08803.png?format=1500w">
                 </a>
 
                 <div class="image-slide-title">PORTFOLIO OF WORK</div>

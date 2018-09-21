@@ -729,7 +729,7 @@ ul.slider-1 {
 }
 
 .sqs-gallery-block-grid.sqs-gallery-thumbnails-per-row-3 .sqs-gallery-design-grid-slide {
-    width: 33.333333333333336%;
+    width: calc(33.333% - 11px);
 }
 
 .sqs-gallery-block-grid .slide {
@@ -757,13 +757,18 @@ ul.slider-1 {
 }
 
 #block-yui_3_17_2_3_1475232616143_10284 .sqs-gallery-block-grid .sqs-gallery-design-grid {
-    margin-right: -10px;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
-#block-yui_3_17_2_3_1475232616143_10284 .sqs-gallery-block-grid .sqs-gallery-design-grid-slide .margin-wrapper {
-    margin-right: 10px;
-    margin-bottom: 10px;
+#block-yui_3_17_2_3_1475232616143_10284 #yui_3_17_2_1_1537363311129_129 .slide.sqs-gallery-design-grid-slide.sqs-active-slide {
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 16px;
+}
+
+#block-yui_3_17_2_3_1475232616143_10284 #yui_3_17_2_1_1537363311129_129 .slide.sqs-gallery-design-grid-slide.sqs-active-slide:nth-child(3n + 2) {
+    margin-right: 16px;
+    margin-left: 16px;
 }
 
 #projectThumbs {
@@ -788,7 +793,7 @@ ul.slider-1 {
 
 #projectThumbs .project {
     float: left;
-    width: calc(33.3% - 11px);
+    width: calc(33.333% - 11px);
     cursor: pointer;
     -webkit-transform: translatez(0);
     margin-bottom: 16px;
@@ -1155,6 +1160,21 @@ body a:hover {
     color: #888 !important;
 }
 
+#yui_3_17_2_1_1537360338988_91 img {
+    padding-bottom: 0 !important;
+}
+
+#textarea-yui_3_17_2_3_1475078484425_4663-field {
+    margin-top: 6px;
+    margin-bottom: 4px;
+    height: 170px;
+    max-width: 650px;
+}
+
+#block-b07dc257fa287274d6a1 .form-group {
+    margin-bottom: 0;
+}
+
 @media only screen and (max-width: 750px) {
     .sqs-gallery.sqs-gallery-design-grid {
         overflow: hidden;
@@ -1313,8 +1333,13 @@ body a:hover {
     }
 
     #block-yui_3_17_2_3_1475232616143_10284 .sqs-gallery-design-grid-slide {
-        width: 50% !important;
+        width: 100% !important;
         clear: none !important;
+    }
+
+    #block-yui_3_17_2_3_1475232616143_10284 #yui_3_17_2_1_1537363311129_129 .slide.sqs-gallery-design-grid-slide.sqs-active-slide:nth-child(3n + 2) {
+        margin-right: 0;
+        margin-left: 0;
     }
 
     #footer {
@@ -1341,6 +1366,22 @@ body a:hover {
 
     .page-open #projectPages .project-controls {
         margin-bottom: 0;
+    }
+
+    .sqs-gallery-block-grid.sqs-gallery-thumbnails-per-row-3 .sqs-gallery-design-grid-slide {
+        width: 100%;
+    }
+
+    #block-yui_3_17_2_3_1475232616143_10284 {
+        padding-top: 0;
+    }
+
+    #block-yui_3_17_2_3_1475232616143_10284 #yui_3_17_2_1_1537363311129_129 .slide.sqs-gallery-design-grid-slide.sqs-active-slide {
+        margin-bottom: 10px;
+    }
+
+    #yui_3_17_2_1_1537360338988_91 img {
+        padding-bottom: 10px !important;
     }
 }
 
