@@ -54,7 +54,7 @@ class AController extends Controller
 
     public function actionEdit($id)
     {
-        $model = Text::findOne($id);
+        $model = Text::find()->where(['text_id' => $id])->multilingual()->one();
 
         if($model === null){
             $this->flash('error', Yii::t('easyii', 'Not found'));

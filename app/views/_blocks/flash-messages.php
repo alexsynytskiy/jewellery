@@ -18,9 +18,10 @@ $flashes = Yii::$app->session->getAllFlashes();
             $flash = (is_array($flash)) ? $flash : [$flash];
 
             foreach ($flash as $subMessage): ?>
-                <div class="message" data-title="<?= $title; ?>" data-icon="<?= $icon; ?>" data-style="<?= $style; ?>"
-                     data-status="<?= $status; ?>"><?= Html::encode($subMessage); ?></div>
+                <div class="message" data-title="<?= $title ?>" data-icon="<?= $icon ?>" data-style="<?= $style ?>"
+                     data-status="<?= $status ?>"><?= Html::encode($subMessage) ?></div>
             <?php endforeach; ?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
+

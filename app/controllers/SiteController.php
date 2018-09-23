@@ -6,6 +6,7 @@ use app\components\PublicationsQuery;
 use yii\easyii\components\helpers\CategoryHelper;
 use yii\easyii\modules\gallery\api\Gallery;
 use yii\easyii\modules\page\api\Page;
+use yii\easyii\modules\text\api\Text;
 use yii\web\Controller;
 
 /**
@@ -32,7 +33,15 @@ class SiteController extends Controller
         \Yii::$app->seo->setDescription('Ювелирка');
         \Yii::$app->seo->setKeywords('ювелирка, україна');
 
+        $gallery = Gallery::cat('slajder-golovna');
+        $photos = [];
+
+        if ($gallery) {
+            $photos = $gallery->photos();
+        }
+
         return $this->render('index', [
+            'photos' => $photos,
         ]);
     }
 
@@ -61,7 +70,22 @@ class SiteController extends Controller
         \Yii::$app->seo->setDescription('Ювелирка');
         \Yii::$app->seo->setKeywords('ювелирка, україна');
 
+        $gallery = Gallery::cat('foto-profajl');
+        $photos = [];
+
+        if ($gallery) {
+            $photos = $gallery->photos();
+        }
+
+        $block1 = Text::get('spikelet-collection');
+        $block2 = Text::get('poppy-collection');
+        $block3 = Text::get('poppy-moda');
+
         return $this->render('profile', [
+            'block1' => $block1,
+            'block2' => $block2,
+            'block3' => $block3,
+            'photos' => $photos,
         ]);
     }
 
@@ -74,7 +98,14 @@ class SiteController extends Controller
         \Yii::$app->seo->setDescription('Ювелирка');
         \Yii::$app->seo->setKeywords('ювелирка, україна');
 
+        $aboutUs = Text::get('contact-about-us');
+        $getInTouch = Text::get('get-in-touch');
+        $social = Text::get('social');
+
         return $this->render('contact', [
+            'aboutUs' => $aboutUs,
+            'getInTouch' => $getInTouch,
+            'social' => $social,
         ]);
     }
 }

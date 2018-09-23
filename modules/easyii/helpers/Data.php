@@ -1,22 +1,23 @@
 <?php
+
 namespace yii\easyii\helpers;
 
 use Yii;
-use yii\helpers\Inflector;
-use yii\helpers\StringHelper;
 
 class Data
 {
     public static function cache($key, $duration, $callable)
     {
         $cache = Yii::$app->cache;
-        if($cache->exists($key)){
+
+        $cache->flush();
+
+        if ($cache->exists($key)) {
             $data = $cache->get($key);
-        }
-        else{
+        } else {
             $data = $callable();
 
-            if($data) {
+            if ($data) {
                 $cache->set($key, $data, $duration);
             }
         }

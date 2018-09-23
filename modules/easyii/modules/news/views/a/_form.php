@@ -1,6 +1,7 @@
 <?php
 /** @var $model yii\easyii\modules\news\models\News */
 
+use yii\easyii\components\helpers\LanguageHelper;
 use yii\easyii\helpers\Image;
 use yii\easyii\widgets\DateTimePicker;
 use yii\easyii\widgets\Redactor;
@@ -8,11 +9,8 @@ use yii\easyii\widgets\SeoForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
-use \yii\easyii\components\helpers\CategoryHelper;
 
 $module = $this->context->module->id;
-
-$asset = \yii\easyii\modules\news\assets\NewsAsset::register($this);
 ?>
 
 <?php $form = ActiveForm::begin([
@@ -20,18 +18,47 @@ $asset = \yii\easyii\modules\news\assets\NewsAsset::register($this);
     'options' => ['enctype' => 'multipart/form-data', 'class' => 'model-form']
 ]); ?>
 
-<?= $form->field($model, 'title') ?>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab" href="#uk"><?= LanguageHelper::getLanguages()[LanguageHelper::LANG_UA] ?></a>
+    </li>
+    <li><a data-toggle="tab" href="#en"><?= LanguageHelper::getLanguages()[LanguageHelper::LANG_EN] ?></a></li>
+</ul>
 
-<?= $form->field($model, 'short')->textarea() ?>
+<div class="tab-content">
+    <div id="uk" class="tab-pane fade in active">
+        <br>
+        <?= $form->field($model, 'title') ?>
 
-<?= $form->field($model, 'text')->widget(Redactor::className(), [
-    'options' => [
-        'minHeight' => 400,
-        'imageUpload' => Url::to(['/admin/redactor/upload', 'dir' => 'news']),
-        'fileUpload' => Url::to(['/admin/redactor/upload', 'dir' => 'news']),
-        'plugins' => ['fullscreen']
-    ]
-]) ?>
+        <?= $form->field($model, 'short')->textarea() ?>
+
+        <?= $form->field($model, 'text')->widget(Redactor::className(), [
+            'options' => [
+                'minHeight' => 400,
+                'imageUpload' => Url::to(['/admin/redactor/upload', 'dir' => 'news']),
+                'fileUpload' => Url::to(['/admin/redactor/upload', 'dir' => 'news']),
+                'plugins' => ['fullscreen']
+            ]
+        ]) ?>
+    </div>
+    <div id="en" class="tab-pane fade">
+        <br>
+        <?= $form->field($model, 'title_en')->label(LanguageHelper::getMultilingualFieldLabel($model, 'title_en')) ?>
+
+        <?= $form->field($model, 'short_en')->label(LanguageHelper::getMultilingualFieldLabel($model, 'short_en'))->textarea() ?>
+
+        <?= $form->field($model, 'text_en')
+            ->label(LanguageHelper::getMultilingualFieldLabel($model, 'text_en'))
+            ->widget(Redactor::className(), [
+                'options' => [
+                    'minHeight' => 400,
+                    'imageUpload' => Url::to(['/admin/redactor/upload', 'dir' => 'news']),
+                    'fileUpload' => Url::to(['/admin/redactor/upload', 'dir' => 'news']),
+                    'plugins' => ['fullscreen']
+                ]
+            ]) ?>
+    </div>
+</div>
 
 <?php if (!$model->isNewRecord && $model->category === \yii\easyii\components\helpers\CategoryHelper::CATEGORY_PORTFOLIO) : ?>
     <?php if ($this->context->module->settings['enableThumb']) : ?>
@@ -55,7 +82,7 @@ $asset = \yii\easyii\modules\news\assets\NewsAsset::register($this);
     <?php endif; ?>
 <?php endif; ?>
 
-    <?= $form->field($model, 'time')->widget(DateTimePicker::className()); ?>
+<?= $form->field($model, 'time')->widget(DateTimePicker::className()); ?>
 
 <?php if (IS_ROOT) : ?>
     <?= $form->field($model, 'slug') ?>
@@ -65,12 +92,3 @@ $asset = \yii\easyii\modules\news\assets\NewsAsset::register($this);
 <?= Html::submitButton(Yii::t('easyii', 'Save'), ['class' => 'btn btn-primary']) ?>
 <?php ActiveForm::end(); ?>
 
-<?php
-$pageOptions = \yii\helpers\Json::encode([
-    'types' => [
-        CategoryHelper::getCategoriesValues(),
-    ],
-]);
-
-$this->registerJs("PublicationPage({$pageOptions});");
-?>

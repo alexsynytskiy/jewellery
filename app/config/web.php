@@ -13,7 +13,7 @@ $config = [
         "app\\components\\AdminBootstrap",
     ],
     'language'       => 'uk',
-    'sourceLanguage' => 'uk',
+    'sourceLanguage' => 'ua',
     'timeZone'       => 'Europe/Kiev',
     'runtimePath'    => $webroot . '/runtime',
     'vendorPath'     => $webroot . '/vendor',
@@ -24,8 +24,8 @@ $config = [
         $getParam = $app->request->get('parent');
         preg_match('/[^\/]+$/', $pathInfo, $matches);
 
-        $startRedirect = ['admin'];
-        $stopRedirect  = ['items', 'edit', 'photos', 'settings', 'index', 'list', 'redactor', 'site'];
+        $startRedirect = ['admin', 'site'];
+        $stopRedirect  = ['items', 'edit', 'photos', 'settings', 'index', 'list', 'redactor'];
 
         $redirect = false;
 
@@ -68,6 +68,8 @@ $config = [
             'class' => 'yii\mutex\FileMutex',
         ],
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en' => 'en-US', 'ua' => 'uk'],
             'rules' => [
                 '<action:\w+>' => 'site/<action>',
                 '<controller:\w+>/'                  => '<controller>/index',
@@ -75,6 +77,9 @@ $config = [
                 '<controller:\w+>/<action:\w+>/'     => '<controller>/<action>',
                 '<controller:\w+>/cat/<slug:[\w-]+>' => '<controller>/cat',
             ],
+            'enableStrictParsing' => false,
+            'enableLanguageDetection' => false,
+            'enableDefaultLanguageUrlCode' => true,
         ],
         'assetManager' => [
             'class'   => 'yii\web\AssetManager',

@@ -34,40 +34,38 @@ switch ($controller) {
             <nav class="main-nav mobileNav">
                 <ul>
                     <li class="index-collection">
-                        <a href="<?= Url::to('portfolio') ?>">PORTFOLIO</a>
+                        <a href="<?= Url::to('portfolio') ?>"><?= Yii::t('easyii', 'PORTFOLIO') ?></a>
                     </li>
                     <li class="page-collection">
-                        <a href="<?= Url::to('profile') ?>">PROFILE</a>
+                        <a href="<?= Url::to('profile') ?>"><?= Yii::t('easyii', 'PROFILE') ?></a>
                     </li>
                     <li class="page-collection">
-                        <a href="<?= Url::to('contact') ?>">CONTACT</a>
+                        <a href="<?= Url::to('contact') ?>"><?= Yii::t('easyii', 'CONTACT') ?></a>
                     </li>
                 </ul>
             </nav>
         </div>
     </div>
-    <div id="mobileMenuLink"><a>Menu</a></div>
+    <div id="mobileMenuLink"><a><?= Yii::t('easyii', 'Menu') ?></a></div>
     <header id="header">
         <div id="logo" data-content-field="site-title">
             <h1 class="logo" data-shrink-original-size="16">
                 <a href="/">
-                    <img src="//static1.squarespace.com/static/57e91a1fe3df28942b94bccb/t/57e91e71c534a54769a0f0a0/1515686555941/?format=1000w"
-                         alt="INTSIGN">
+                    <img src="<?= $asset->baseUrl ?>/img/logo.png?format=1000w" alt="INTSIGN">
                 </a>
             </h1>
-            <div class="logo-subtitle" data-shrink-original-size="0">brand curation</div>
         </div>
         <div id="topNav" data-content-field="navigation">
             <nav class="main-nav">
                 <ul>
                     <li class="index-collection">
-                        <a href="<?= Url::to('portfolio') ?>">PORTFOLIO</a>
+                        <a href="<?= Url::to('portfolio') ?>"><?= Yii::t('easyii', 'PORTFOLIO') ?></a>
                     </li>
                     <li class="page-collection">
-                        <a href="<?= Url::to('profile') ?>">PROFILE</a>
+                        <a href="<?= Url::to('profile') ?>"><?= Yii::t('easyii', 'PROFILE') ?></a>
                     </li>
                     <li class="page-collection">
-                        <a href="<?= Url::to('contact') ?>">CONTACT</a>
+                        <a href="<?= Url::to('contact') ?>"><?= Yii::t('easyii', 'CONTACT') ?></a>
                     </li>
                 </ul>
             </nav>

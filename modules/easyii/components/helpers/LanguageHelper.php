@@ -1,8 +1,7 @@
 <?php
+
 namespace yii\easyii\components\helpers;
 
-use acp\components\AcpMsg;
-use acp\components\ActiveRecord;
 use yii\base\Model;
 
 /**
@@ -14,47 +13,42 @@ class LanguageHelper
     /**
      * Const allowed languages
      */
-    const LANG_UA  = 'uk';
-    const LANG_EN  = 'en-US';
-    const LANG_SK  = 'sk';
-    const LANG_POL = 'pl';
-    const LANG_HUN = 'hu';
-    const LANG_RO  = 'ro';
+    const LANG_UA = 'uk';
+    const LANG_EN = 'en-US';
 
     /**
- * @return array
- */
-    public static function getLanguages() {
+     * @param string $language
+     * @return mixed
+     */
+    public static function getLanguageSlug($language)
+    {
+        $languages = [
+            self::LANG_UA => 'ua',
+            self::LANG_EN => 'en',
+        ];
+
+        return $languages[$language];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getLanguages()
+    {
         return [
-            self::LANG_UA  => 'Українська',
-            self::LANG_EN  => 'English',
-            self::LANG_SK  => 'Slovenský',
-            self::LANG_POL => 'Polski',
-            self::LANG_HUN => 'Magyar',
-            self::LANG_RO  => 'Românesc'
+            self::LANG_UA => 'Українська',
+            self::LANG_EN => 'English',
         ];
     }
 
     /**
      * @return array
      */
-    public static function getCountries() {
+    public static function getShortLanguages()
+    {
         return [
-            self::LANG_UA  => \Yii::t('easyii', 'Ukraine'),
-            self::LANG_SK  => \Yii::t('easyii', 'Slovakia'),
-            self::LANG_POL => \Yii::t('easyii', 'Poland'),
-            self::LANG_HUN => \Yii::t('easyii', 'Hungary'),
-            self::LANG_RO  => \Yii::t('easyii', 'Romania'),
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function getShortLanguages() {
-        return [
-            self::LANG_UA => \Yii::t('Ru', [], null),
-            self::LANG_EN => \Yii::t('En', [], null),
+            self::LANG_UA => \Yii::t('', 'Ua', null),
+            self::LANG_EN => \Yii::t('', 'En', null),
         ];
     }
 
@@ -65,13 +59,14 @@ class LanguageHelper
      *
      * @return bool
      */
-    public static function isMultilingualField($name) {
+    public static function isMultilingualField($name)
+    {
         $langSuffix = substr($name, -3);
 
-        if($langSuffix !== false) {
+        if ($langSuffix !== false) {
             $lang = substr($langSuffix, 1, 2);
 
-            return in_array($lang, array_keys(static::getLanguages()), true);
+            return array_key_exists($lang, static::getLanguages());
         }
 
         return false;
@@ -85,20 +80,22 @@ class LanguageHelper
      *
      * @return array
      */
-    public static function getMultilingualFieldInfo($name) {
+    public static function getMultilingualFieldInfo($name)
+    {
         return [
-            'name'     => substr($name, 0, -3),
+            'name' => substr($name, 0, -3),
             'language' => substr($name, -2),
         ];
     }
 
     /**
-     * @param ActiveRecord|Model $model
+     * @param \yii\db\ActiveRecord|Model $model
      * @param                    $fieldId
      *
      * @return string
      */
-    public static function getMultilingualFieldLabel($model, $fieldId) {
+    public static function getMultilingualFieldLabel($model, $fieldId)
+    {
         $field = static::getMultilingualFieldInfo($fieldId);
 
         return $model->getAttributeLabel($field['name']) . ' ' . strtoupper($field['language']);
@@ -112,10 +109,11 @@ class LanguageHelper
      *
      * @return array
      */
-    public static function getLocalizedAttributeLabels(array $attributeLabels, array $localizedAttributes) {
-        foreach(array_keys(static::getLanguages()) as $lang) {
-            foreach($localizedAttributes as $attribute) {
-                if(isset($attributeLabels[$attribute])) {
+    public static function getLocalizedAttributeLabels(array $attributeLabels, array $localizedAttributes)
+    {
+        foreach (array_keys(static::getLanguages()) as $lang) {
+            foreach ($localizedAttributes as $attribute) {
+                if (isset($attributeLabels[$attribute])) {
                     $attributeLabels[$attribute . '_' . $lang] = $attributeLabels[$attribute] . ' ' . strtoupper($lang);
                 }
             }

@@ -1,12 +1,14 @@
 <?php
+
 namespace yii\easyii\modules\text\api;
 
 use Yii;
 use yii\easyii\components\API;
+use yii\easyii\components\helpers\LanguageHelper;
 use yii\easyii\helpers\Data;
-use yii\helpers\Url;
 use yii\easyii\modules\text\models\Text as TextModel;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * Text module API
@@ -22,23 +24,27 @@ class Text extends API
     {
         parent::init();
 
-        $this->_texts = Data::cache(TextModel::CACHE_KEY, 3600, function(){
-            return TextModel::find()->asArray()->all();
+        $language = \Yii::$app->language !== LanguageHelper::LANG_UA ? LanguageHelper::LANG_EN : LanguageHelper::LANG_UA;
+
+        $this->_texts = Data::cache(TextModel::CACHE_KEY . '_' . $language, 3600, function () use ($language) {
+            return TextModel::find()->localized($language)->asArray()->all();
         });
     }
 
     public function api_get($id_slug)
     {
-        if(($text = $this->findText($id_slug)) === null){
+        if (($text = $this->findText($id_slug)) === null) {
             return $this->notFound($id_slug);
         }
-        return LIVE_EDIT ? API::liveEdit($text['text'], Url::to(['/admin/text/a/edit/', 'id' => $text['text_id']])) : $text['text'];
+
+        return LIVE_EDIT ? API::liveEdit($text['translation']['text'], Url::to(['/admin/text/a/edit/',
+            'id' => $text['text_id']])) : $text['translation'];
     }
 
     private function findText($id_slug)
     {
         foreach ($this->_texts as $item) {
-            if($item['slug'] == $id_slug || $item['text_id'] == $id_slug){
+            if ($item['slug'] === $id_slug || $item['text_id'] === $id_slug) {
                 return $item;
             }
         }
@@ -49,8 +55,9 @@ class Text extends API
     {
         $text = '';
 
-        if(!Yii::$app->user->isGuest && preg_match(TextModel::$SLUG_PATTERN, $id_slug)){
-            $text = Html::a(Yii::t('easyii/text/api', 'Create text'), ['/admin/text/a/create', 'slug' => $id_slug], ['target' => '_blank']);
+        if (!Yii::$app->user->isGuest && preg_match(TextModel::$SLUG_PATTERN, $id_slug)) {
+            $text = Html::a(Yii::t('easyii/text/api', 'Create text'), ['/admin/text/a/create',
+                'slug' => $id_slug], ['target' => '_blank']);
         }
 
         return $text;

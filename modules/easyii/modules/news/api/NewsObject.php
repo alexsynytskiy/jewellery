@@ -95,6 +95,7 @@ class NewsObject extends ApiObject
 
     /**
      * @return string
+     * @throws \yii\base\InvalidConfigException
      */
     public function getDate()
     {

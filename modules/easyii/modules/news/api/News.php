@@ -31,7 +31,7 @@ class News extends \yii\easyii\components\API
 
     public function api_items($options = [])
     {
-        if(!$this->_items){
+        if(!$this->_items) {
             $this->_items = [];
 
             $with = ['seo'];

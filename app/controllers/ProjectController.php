@@ -52,7 +52,7 @@ class ProjectController extends Controller
             $project = null;
 
             if (\Yii::$app->language !== LanguageHelper::LANG_UA) {
-                $project = News::get([$slug, 'en']);
+                $project = News::get([$slug, LanguageHelper::LANG_EN]);
             } else {
                 $project = News::get([$slug]);
             }

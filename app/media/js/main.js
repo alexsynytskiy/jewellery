@@ -18,6 +18,8 @@ $(document).ready(function () {
         });
     }
 
+    $("#yui_3_17_2_1_1537363311129_129").AutoLightbox();
+
     $('.slider-1').bxSlider({
         slideWidth: 1140,
         slideHeight: 800,
@@ -46,6 +48,8 @@ $(document).ready(function () {
         }
 
         $(mobileNav).toggleClass("menu-open");
+    }).on("click", '#yui_3_17_2_1_1537363311129_129 a', function (e) {
+        e.preventDefault();
     });
 });
 

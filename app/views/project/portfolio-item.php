@@ -5,6 +5,7 @@
 /* @var $prevValue string */
 ?>
 
+<div class="clearfix"></div>
 <div class="project page-project active-project sqs-dynamic-data-ready" id="yui_3_17_2_1_1537435758913_819">
     <div class="sqs-layout sqs-grid-12 columns-12" id="page-5a57764cf9619a7a6dd034aa">
         <div class="row sqs-row" id="yui_3_17_2_1_1537435758913_1220">
@@ -13,6 +14,13 @@
                     <div class="col sqs-col-6 span-6">
                         <div class="sqs-block html-block sqs-block-html" id="block-bfb13ef0e0be6da67dd2">
                             <div class="sqs-block-content"><h1><?= $project->title ?></h1></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row sqs-row project-title-text">
+                    <div class="col sqs-col-6 span-6">
+                        <div class="sqs-block html-block sqs-block-html" id="block-bfb13ef0e08649565468">
+                            <div class="sqs-block-content"><h1><?= $project->text ?></h1></div>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,6 @@ class NewsAsset extends \yii\web\AssetBundle
     public $sourcePath = '@easyii/modules/news/media';
 
     public $js = [
-        'js/PublicationPage.js',
     ];
 
     public $publishOptions = [

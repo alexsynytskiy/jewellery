@@ -131,35 +131,43 @@ return [
     'Image cleared' => 'Изображение очищено',
 
     //Меню
-    'Home'                => 'Головна',
-    'News'                => 'Новини',
-    'About'               => 'Про нас',
+    'Home' => 'Головна',
+    'News' => 'Новини',
+    'About' => 'Про нас',
 
     //Футер
     'Copyright &copy; 2018. All right reserved.' => 'Copyright &copy; 2018. Всі права захищено.',
 
     //Новости
-    'More news'                                         => 'Більше новин',
-    'Tags'                                              => 'Теги',
+    'More news' => 'Більше новин',
+    'Tags' => 'Теги',
 
     //Страны
-    'Ukraine'  => 'Україна',
+    'Ukraine' => 'Україна',
 
     'To main page' => 'Публиковать на главной',
-    
-    'January'   => 'Січня',
-    'February'  => 'Лютого',
-    'March'     => 'Березня',
-    'April'     => 'Квітня',
-    'May'       => 'Травня',
-    'June'      => 'Червня',
-    'July'      => 'Липня',
-    'August'    => 'Серпня',
-    'September' => 'Вересня',
-    'October'   => 'Жовтня',
-    'November'  => 'Листопада',
-    'December'  => 'Грудня',
 
-    'Polyana Festival in Polyana during 8-10 of september 2017' => 'Фестиваль Polyana festival пройде у Поляні з 8 до 10 вересня 2017 року',
-    'polyana, festival, carpathians, september, onuka, music, nature' => 'поляна, фестиваль, карпати, вересень, онука, музика, природа',
+    'January' => 'Січня',
+    'February' => 'Лютого',
+    'March' => 'Березня',
+    'April' => 'Квітня',
+    'May' => 'Травня',
+    'June' => 'Червня',
+    'July' => 'Липня',
+    'August' => 'Серпня',
+    'September' => 'Вересня',
+    'October' => 'Жовтня',
+    'November' => 'Листопада',
+    'December' => 'Грудня',
+
+    'PORTFOLIO' => 'ПОРТФОЛІО',
+    'PROFILE' => 'ПРОФІЛЬ',
+    'CONTACT' => 'КОНТАКТИ',
+
+    'Menu' => 'Меню',
+    'prev' => 'назад',
+    'next' => 'вперед',
+    'Back to portfolio of work' => 'Назад до портфоліо',
+
+    'PORTFOLIO OF WORK' => 'ПОРТФОЛІО'
 ];
