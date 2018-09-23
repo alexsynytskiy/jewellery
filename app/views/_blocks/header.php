@@ -47,7 +47,7 @@ switch ($controller) {
         </div>
     </div>
     <div id="mobileMenuLink"><a><?= Yii::t('easyii', 'Menu') ?></a></div>
-    <header id="header">
+    <header id="header" class="clearfix">
         <div id="logo" data-content-field="site-title">
             <h1 class="logo" data-shrink-original-size="16">
                 <a href="/">

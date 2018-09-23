@@ -28,7 +28,6 @@ class Text extends \yii\easyii\components\ActiveRecord
     {
         return [
             ['text_id', 'number', 'integerOnly' => true],
-            ['text', 'required'],
             ['text', 'trim'],
             ['title', 'string'],
             ['slug', 'match', 'pattern' => self::$SLUG_PATTERN,

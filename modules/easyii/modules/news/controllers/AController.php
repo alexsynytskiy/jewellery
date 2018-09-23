@@ -95,28 +95,28 @@ class AController extends Controller
             if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
                 return ActiveForm::validate($model);
-            } else {
-                if (isset($_FILES) && $this->module->settings['enableThumb']) {
-                    $model->image = UploadedFile::getInstance($model, 'image');
-                    if ($model->image && $model->validate(['image'])) {
-                        $model->image = Image::upload($model->image, 'news');
-                    } else {
-                        $model->image = $model->oldAttributes['image'];
-                    }
-                }
-
-                if ($model->save()) {
-                    $this->flash('success', Yii::t('easyii/news', 'News updated'));
-                } else {
-                    $this->flash('error', Yii::t('easyii', 'Update error. {0}', $model->formatErrors()));
-                }
-                return $this->refresh();
             }
-        } else {
-            return $this->render('edit', [
-                'model' => $model
-            ]);
+
+            if (isset($_FILES) && $this->module->settings['enableThumb']) {
+                $model->image = UploadedFile::getInstance($model, 'image');
+                if ($model->image && $model->validate(['image'])) {
+                    $model->image = Image::upload($model->image, 'news');
+                } else {
+                    $model->image = $model->oldAttributes['image'];
+                }
+            }
+
+            if ($model->save()) {
+                $this->flash('success', Yii::t('easyii/news', 'News updated'));
+            } else {
+                $this->flash('error', Yii::t('easyii', 'Update error. {0}', $model->formatErrors()));
+            }
+            return $this->refresh();
         }
+
+        return $this->render('edit', [
+            'model' => $model
+        ]);
     }
 
     /**

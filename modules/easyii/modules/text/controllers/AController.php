@@ -1,12 +1,12 @@
 <?php
+
 namespace yii\easyii\modules\text\controllers;
 
 use Yii;
 use yii\data\ActiveDataProvider;
-use yii\widgets\ActiveForm;
-
 use yii\easyii\components\Controller;
 use yii\easyii\modules\text\models\Text;
+use yii\widgets\ActiveForm;
 
 class AController extends Controller
 {
@@ -27,65 +27,67 @@ class AController extends Controller
         $model = new Text;
 
         if ($model->load(Yii::$app->request->post())) {
-            if(Yii::$app->request->isAjax){
+            if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
                 return ActiveForm::validate($model);
             }
-            else{
-                if($model->save()){
-                    $this->flash('success', Yii::t('easyii/text', 'Text created'));
-                    return $this->redirect(['/admin/'.$this->module->id]);
-                }
-                else{
-                    $this->flash('error', Yii::t('easyii', 'Create error. {0}', $model->formatErrors()));
-                    return $this->refresh();
-                }
+
+            if ($model->save()) {
+                $this->flash('success', Yii::t('easyii/text', 'Text created'));
+                return $this->redirect(['/admin/' . $this->module->id]);
             }
+
+            $this->flash('error', Yii::t('easyii', 'Create error. {0}', $model->formatErrors()));
+            return $this->refresh();
         }
-        else {
-            if($slug){
-                $model->slug = $slug;
-            }
-            return $this->render('create', [
-                'model' => $model
-            ]);
+
+        if ($slug) {
+            $model->slug = $slug;
         }
+
+        return $this->render('create', [
+            'model' => $model
+        ]);
     }
 
     public function actionEdit($id)
     {
         $model = Text::find()->where(['text_id' => $id])->multilingual()->one();
 
-        if($model === null){
+        if ($model === null) {
             $this->flash('error', Yii::t('easyii', 'Not found'));
-            return $this->redirect(['/admin/'.$this->module->id]);
+            return $this->redirect(['/admin/' . $this->module->id]);
         }
 
         if ($model->load(Yii::$app->request->post())) {
-            if(Yii::$app->request->isAjax){
+            if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
                 return ActiveForm::validate($model);
             }
-            else{
-                if($model->save()){
-                    $this->flash('success', Yii::t('easyii/text', 'Text updated'));
-                }
-                else{
-                    $this->flash('error', Yii::t('easyii', 'Update error. {0}', $model->formatErrors()));
-                }
-                return $this->refresh();
+
+            if ($model->save()) {
+                $this->flash('success', Yii::t('easyii/text', 'Text updated'));
+            } else {
+                $this->flash('error', Yii::t('easyii', 'Update error. {0}', $model->formatErrors()));
             }
+            return $this->refresh();
         }
-        else {
-            return $this->render('edit', [
-                'model' => $model
-            ]);
-        }
+
+        return $this->render('edit', [
+            'model' => $model
+        ]);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionDelete($id)
     {
-        if(($model = Text::findOne($id))){
+        if (($model = Text::findOne($id))) {
             $model->delete();
         } else {
             $this->error = Yii::t('easyii', 'Not found');
