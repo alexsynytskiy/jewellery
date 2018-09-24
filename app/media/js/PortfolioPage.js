@@ -34,12 +34,17 @@ var PortfolioPage = function (options) {
                     $('html, body').animate({
                         scrollTop: $(selectors.projectsContainer).offset().top - 100
                     }, 1000);
+
+                    $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
+                        'min-height': '100%',
+                    });
                 }
             }
         });
     }).on("click", selectors.clearAll, function (e) {
         e.preventDefault();
 
+        windowSize();
         $(selectors.projectsContainer).empty();
     }).on("click", selectors.prevProject + ', ' + selectors.nextProject, function (e) {
         e.preventDefault();

@@ -57,14 +57,17 @@ $(document).ready(function () {
  * window with gradient size preparing
  */
 function windowSize() {
-    var height = $(document).height(),
-        value = '100%';
+    if ($(window).width() > 750) {
+        var height = $('#yui_3_17_2_1_1537367486882_130').height() + $('#header').height() + $('#footer').height(),
+            exceptHeight = $('#header').height() + $('#footer').height() + 23,
+            value = '100%';
 
-    if (height < $(window).height()) {
-        value = 'calc(100vh - 195px)';
+        if (height < $(window).height()) {
+            value = 'calc(100vh - ' + exceptHeight + 'px)';
+        }
+
+        $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
+            'min-height': value
+        });
     }
-
-    $('.thumbnail-layout-autocolumns #projectThumbs > .wrapper').css({
-        'min-height': value
-    });
 }
