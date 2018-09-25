@@ -174,4 +174,8 @@ return [
     'Something went wrong..' => 'Щось пішло не так..',
     'MAIN' => 'Головна',
     'page' => 'сторінка',
+    'Thank you! We will message you as soon as possible!' => 'Дякуємо за відгук! Найближчим часом ми відповімо',
+    'Something went wrong.. Try again later' => 'Щось пішло не так.. Спробуйте пізніше, або зателефонуйте',
+    'Success!' => 'Успіх!',
+    'Error!' => 'Проблема..'
 ];

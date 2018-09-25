@@ -12,7 +12,7 @@ $flashes = Yii::$app->session->getAllFlashes();
             $isSuccess = ($status === 'success');
 
             $style = $status;
-            $title = $isSuccess ? 'Успіх!' : 'Проблема..';
+            $title = $isSuccess ? \Yii::t('easyii', 'Success!') : \Yii::t('easyii', 'Error!');
             $icon = $isSuccess ? 'icon-checkmark3' : 'icon-blocked';
 
             $flash = (is_array($flash)) ? $flash : [$flash];

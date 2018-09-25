@@ -25,10 +25,10 @@ class SendController extends \yii\web\Controller
             $returnUrl = $request->post('successUrl');
 
             if ($model->save()) {
-                \Yii::$app->session->setFlash('success', 'Дякуємо за відгук! Найближчим часом ми відповімо');
+                \Yii::$app->session->setFlash('success', \Yii::t('easyii', 'Thank you! We will message you as soon as possible!'));
             } else {
                 $returnUrl = $request->post('errorUrl');
-                \Yii::$app->session->setFlash('danger', 'Щось пішло не так.. Спробуйте пізніше, або зателефонуйте');
+                \Yii::$app->session->setFlash('danger', \Yii::t('easyii', 'Something went wrong.. Try again later'));
             }
 
             return $this->redirect($returnUrl);
