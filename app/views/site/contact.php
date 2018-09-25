@@ -25,8 +25,8 @@ $baseUrl = $asset->baseUrl;
                         </p>
                         <p>&nbsp;</p>
                         <h1><?= $getInTouch['title'] ?></h1>
-                        <p><a target="_blank" href="mailto:hello@intsign.co">info@deviduran.com</a>&nbsp; &nbsp;<a
-                                    target="_blank" href="tel:+380632720813">+380 67 273 66 17</a>
+                        <p><a target="_blank" href="mailto:info@deviduran.com">info@deviduran.com</a>&nbsp; &nbsp;<a
+                                    target="_blank" href="tel:+380672736617">+380 67 273 66 17</a>
                         <p>&nbsp;</p>
                         <h1><?= $social['title'] ?>&nbsp;</h1>
                         <p><a target="_blank" href="#">INSTAGRAM</a>&nbsp; &nbsp;<a
