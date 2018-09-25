@@ -169,5 +169,9 @@ return [
     'next' => 'вперед',
     'Back to portfolio of work' => 'Назад до портфоліо',
 
-    'PORTFOLIO OF WORK' => 'ПОРТФОЛІО'
+    'PORTFOLIO OF WORK' => 'ПОРТФОЛІО',
+
+    'Something went wrong..' => 'Щось пішло не так..',
+    'MAIN' => 'Головна',
+    'page' => 'сторінка',
 ];

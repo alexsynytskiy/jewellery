@@ -29,9 +29,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        \Yii::$app->seo->setTitle('Головна');
-        \Yii::$app->seo->setDescription('Ювелирка');
-        \Yii::$app->seo->setKeywords('ювелирка, україна');
+        \Yii::$app->seo->setTitle(\Yii::t('easyii', 'MAIN'));
+        \Yii::$app->seo->setDescription(\Yii::t('easyii', 'Devi Duran - ukrainian jewelry brand inspired by nature. Main page'));
+        \Yii::$app->seo->setKeywords('devi, duran', \Yii::t('easyii', 'main'), \Yii::t('easyii', 'page'));
 
         $gallery = Gallery::cat('slajder-golovna');
         $photos = [];
@@ -50,9 +50,9 @@ class SiteController extends Controller
      */
     public function actionPortfolio()
     {
-        \Yii::$app->seo->setTitle('Портфоліо');
-        \Yii::$app->seo->setDescription('Ювелирка');
-        \Yii::$app->seo->setKeywords('ювелирка, україна');
+        \Yii::$app->seo->setTitle(\Yii::t('easyii', 'PORTFOLIO'));
+        \Yii::$app->seo->setDescription(\Yii::t('easyii', 'Devi Duran - ukrainian jewelry brand inspired by nature. Portfolio page'));
+        \Yii::$app->seo->setKeywords('devi, duran', \Yii::t('easyii', 'PORTFOLIO'), \Yii::t('easyii', 'page'));
 
         $works = PublicationsQuery::getList([CategoryHelper::CATEGORY_PORTFOLIO]);
 
@@ -66,9 +66,9 @@ class SiteController extends Controller
      */
     public function actionProfile()
     {
-        \Yii::$app->seo->setTitle('Профайл');
-        \Yii::$app->seo->setDescription('Ювелирка');
-        \Yii::$app->seo->setKeywords('ювелирка, україна');
+        \Yii::$app->seo->setTitle(\Yii::t('easyii', 'PROFILE'));
+        \Yii::$app->seo->setDescription(\Yii::t('easyii', 'Devi Duran - ukrainian jewelry brand inspired by nature. Profile page'));
+        \Yii::$app->seo->setKeywords('devi, duran', \Yii::t('easyii', 'PROFILE'), \Yii::t('easyii', 'page'));
 
         $gallery = Gallery::cat('foto-profajl');
         $photos = [];
@@ -94,9 +94,9 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        \Yii::$app->seo->setTitle('Контакт');
-        \Yii::$app->seo->setDescription('Ювелирка');
-        \Yii::$app->seo->setKeywords('ювелирка, україна');
+        \Yii::$app->seo->setTitle(\Yii::t('easyii', 'CONTACT'));
+        \Yii::$app->seo->setDescription(\Yii::t('easyii', 'Devi Duran - ukrainian jewelry brand inspired by nature. Contact page'));
+        \Yii::$app->seo->setKeywords('devi, duran', \Yii::t('easyii', 'CONTACT'), \Yii::t('easyii', 'page'));
 
         $aboutUs = Text::get('contact-about-us');
         $getInTouch = Text::get('get-in-touch');

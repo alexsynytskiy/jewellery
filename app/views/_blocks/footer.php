@@ -10,8 +10,8 @@ $asset = \app\assets\AppAsset::register($this);
                     <div class="sqs-block html-block sqs-block-html" id="block-179f8c9da7aa428c1198">
                         <div class="sqs-block-content">
                             <p class="text-align-right">
-                                <a target="_blank" href="mailto:hello@intsign.co">HELLO@INTSIGN.CO</a>
-                                <a target="_blank" href="tel:+380632720813">+380 63 272 08 13</a>
+                                <a target="_blank" href="mailto:hello@intsign.co">info@deviduran.com</a>
+                                <a target="_blank" href="tel:+380632720813">+380 67 273 66 17</a>
                             </p>
                         </div>
                     </div>

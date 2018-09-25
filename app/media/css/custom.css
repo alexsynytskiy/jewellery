@@ -1207,6 +1207,10 @@ body a:hover {
     margin-bottom: 0;
 }
 
+#block-bfb13ef0e08649565468 h1 p:last-child {
+    margin-bottom: 5px;
+}
+
 @media only screen and (max-width: 750px) {
     .margin-wrapper .image-slide-title {
         text-align: left;

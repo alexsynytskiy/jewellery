@@ -12,8 +12,6 @@ $baseUrl = $asset->baseUrl;
 ?>
 
 <section id="page" class="clearfix">
-    <!-- CATEGORY NAV -->
-
     <div class="sqs-layout sqs-grid-12 columns-12" data-type="page" id="page-57ebea79f7e0abae9fb77471">
         <div class="clearfix"></div>
         <div class="row sqs-row">
@@ -27,12 +25,12 @@ $baseUrl = $asset->baseUrl;
                         </p>
                         <p>&nbsp;</p>
                         <h1><?= $getInTouch['title'] ?></h1>
-                        <p><a target="_blank" href="mailto:hello@intsign.co">HELLO@INTSIGN.CO</a>&nbsp; &nbsp;<a
-                                    target="_blank" href="tel:+380632720813">+380 63 272 0813</a>
+                        <p><a target="_blank" href="mailto:hello@intsign.co">info@deviduran.com</a>&nbsp; &nbsp;<a
+                                    target="_blank" href="tel:+380632720813">+380 67 273 66 17</a>
                         <p>&nbsp;</p>
                         <h1><?= $social['title'] ?>&nbsp;</h1>
-                        <p><a target="_blank" href="http://instagram.com/intsign.co">INSTAGRAM</a>&nbsp; &nbsp;<a
-                                    target="_blank" href="https://www.facebook.com/Intsign/">FACEBOOK</a></p></div>
+                        <p><a target="_blank" href="#">INSTAGRAM</a>&nbsp; &nbsp;<a
+                                    target="_blank" href="#">FACEBOOK</a></p></div>
                 </div>
             </div>
             <div class="col sqs-col-7 span-7">

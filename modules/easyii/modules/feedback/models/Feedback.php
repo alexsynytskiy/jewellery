@@ -59,7 +59,7 @@ class Feedback extends \yii\easyii\components\ActiveRecord
         parent::afterSave($insert, $changedAttributes);
 
         if($insert){
-            //$this->mailAdmin();
+            $this->mailAdmin();
         }
     }
 

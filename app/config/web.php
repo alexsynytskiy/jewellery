@@ -63,6 +63,15 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host'  => 'mx1.mirohost.net',
+                'username' => 'info@deviduran.com',
+                'password' => 'tmaKCQHfj6Er',
+                'port'     => 25,
+                'encryption' => 'tls',
+            ],
         ],
         'mutex' => [
             'class' => 'yii\mutex\FileMutex',

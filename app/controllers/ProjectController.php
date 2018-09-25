@@ -23,7 +23,7 @@ class ProjectController extends Controller
      */
     public function actionGetProject()
     {
-        $errorResponse = ['status' => 'error', 'message' => 'Щось пішло не так..'];
+        $errorResponse = ['status' => 'error', 'message' => \Yii::t('easyii', 'Something went wrong..')];
 
         if (!\Yii::$app->mutex->acquire('multiple-get-project')) {
             \Yii::info('Пользователь попытался запросить много проектов за один раз');

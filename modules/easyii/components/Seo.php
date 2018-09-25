@@ -26,7 +26,7 @@ class Seo extends Object
      * @param $title
      */
     public function setTitle($title) {
-        $this->view->title = \Yii::t('app', 'Ювелірка | ').$title;
+        $this->view->title = \Yii::t('app', 'Devi Duran | ').$title;
     }
 
     /**
